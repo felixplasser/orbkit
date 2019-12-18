@@ -287,7 +287,7 @@ def read_molden(filename, all_mo=False, spin=None, i_md=-1, interactive=True,
             bNew = False
             at_num = int(thisline[0]) - 1
             ao_num = 0
-          elif len(thisline) == 3 and check_int(thisline[1]):
+          elif not check_int(thisline[0]) and check_int(thisline[1]):
             # AO information section 
             # Initialize a new dict for this AO 
             ao_num = 0               # Initialize number of atomic orbiatls 
@@ -305,7 +305,11 @@ def read_molden(filename, all_mo=False, spin=None, i_md=-1, interactive=True,
                               })
           else:
             # Append the AO coefficients 
-            coeffs = numpy.array(line.replace('D','e').split(), dtype=numpy.float64)
+            try:
+               coeffs = numpy.array(line.replace('D','e').split(), dtype=numpy.float64)
+            except:
+               print(line)
+               raise
             for i_ao in range(len(ao_type)):
               qc.ao_spec[-len(ao_type)+i_ao]['coeffs'][ao_num,:] = [coeffs[0],
                                                                 coeffs[1+i_ao]]
