@@ -1,3 +1,9 @@
+ORBKIT - fork to be used with TheoDORE
+====
+
+This fork of orbkit is intended to be used with the TheoDORE program:
+http://theodore-qc.sourceforge.net/
+
 .. image:: doc/orbkit_small.png
     :align: center
 
@@ -99,14 +105,9 @@ version can additionally be cloned from https://github.com/orbkit/orbkit.
 
     Clone the repository::
 
-        $ git clone https://github.com/orbkit/orbkit.git
-  * **OR:** Using a zip archive:
+        $ git clone https://github.com/felixplasser/orbkit.git
 
-    Download the latest ORBKIT release and extract the file::
-
-        $ wget https://github.com/orbkit/orbkit/archive/cython.zip
-        $ unzip orbkit-cython.zip
-        $ mv orbkit-cython orbkit
+        and make sure you are on the theodore branch
 
 Set an environment variable to this directory::
 
